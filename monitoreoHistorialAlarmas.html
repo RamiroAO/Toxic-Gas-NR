@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Toxic Gas</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="css/ready.css">
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<nav class="navbar navbar-header navbar-expand-lg navbar-dark bg-dark">
+				<div class="container-fluid">
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown hidden-caret">
+							<div class="nav-link dropdown-toggle">
+								<h3>Toxic Gas</h3>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="sidebar">
+			<div class="scrollbar-inner sidebar-wrapper navbar-dark bg-dark">
+				<ul class="nav">
+					<li class="nav-item active">
+						<a href="#">
+							<i class="la la-dashboard"></i>
+							<p>MONITOREO</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="dispositivos.html">
+							<i class="la la-connectdevelop"></i>
+							<p>DISPOSITIVOS</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="administrador.html">
+							<i class="la la-users"></i>
+							<p>USUARIOS</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-panel">
+			<div class="content">
+				<div class="row">
+					<div class="col-md-4 text-center">
+						<div class="card card-stats ">
+							<div class="card-body ">
+								<button class=" btn btn-warning btn-border btn-lg">Video</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center">
+						<div class="card card-stats ">
+							<div class="card-body ">
+								<button class=" btn btn-warning btn-border btn-lg">Concentración</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 text-center">
+						<div class="card card-stats ">
+							<div class="card-body ">
+								<button class="btn btn-warning btn-lg dropdown-toggle" type="button"
+									id="dropdownMenu1" data-toggle="dropdown">
+									Historial
+								</button>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+									<a class="dropdown-item" href="#">Histórico de alarmas</a>
+									<a class="dropdown-item" href="#">Histórico de gas</a>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-card-no-pd">
+					<div class="col-md-12">
+						<div class="card card-stats">
+							<div class="card-body">
+								<h6 class="text-center">  Por dia, semana y mes.
+									Escoge la fecha para visualizar las alertas que hubieron</h6>
+								<br>
+								<h4 class="text-center">Lunes 30 de noviembre 2020 22:54:10 pm</h4>
+								<hr /> <br>
+								<div class="col-md-12">
+									<div class="card">
+										<div class="row">
+											<div class="col-6">
+												<div class="text-center">
+													<h4 class="text-center">CONCENTRACIÓN DE MONÓXIDO DE CARBONO
+														PROMEDIO DE LA RED</h4> <br><br>
+													<h2 class="text-center"><mark style="background-color: #f5df4d;">0
+															PPM</mark></h2>
+												</div>
+											</div>
+											<div class="col-4">
+												<div class="row">
+													<i class="la la-cogs la-lg"></i>
+													<h4 class="text-right"> Nodo Sensor 001 </h4>
+												</div>
+												<div class="row">
+													<i class="la la-cogs la-lg"></i>
+													<h4>Nodo Sensor 002</h4>													
+												</div>
+												<div class="row">
+													<i class="la la-cogs la-lg"></i>
+													<h4>Nodo Sensor 003</h4>													
+												</div>
+												<div class="row">
+													<i class="la la-cogs la-lg"></i>
+													<h4>Nodo Sensor 004</h4>
+												</div>
+											</div>
+										
+										<div class="col-2">
+											<div class="row text-center">
+												<h4 class="text-center"><mark style="background-color: #f5df4d;">0
+														PPM</mark></h4>
+											</div>
+											<div class="row">
+												<h4 class="text-center"><mark style="background-color: #f5df4d;">0
+														PPM</mark></h4>
+											</div>
+											<div class="row">
+												<h4 class="text-center"><mark style="background-color: #f5df4d;">0
+														PPM</mark></h4>
+											</div>
+											<div class="row">
+												<h4 class="text-center"><mark style="background-color: #f5df4d;">0
+														PPM</mark></h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+<script src="js/core/jquery.3.2.1.min.js"></script>
+<script src="js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="js/core/popper.min.js"></script>
+<script src="js/core/bootstrap.min.js"></script>
+<script src="js/plugin/chartist/chartist.min.js"></script>
+<script src="js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<script src="js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="js/plugin/chart-circle/circles.min.js"></script>
+<script src="js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="js/ready.min.js"></script>
+<script src="js/demo.js"></script>
+
+</html>

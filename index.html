@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Gas Toxic</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory 
+
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/message.css">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://use.fontawesome.com/d051d45183.js"></script>
+</head>
+<style>
+    mark {
+  background-color: #f5df4d;
+  color: black;
+}
+    .abs-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    html,
+    body {
+        background: #d9d9d8;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #ffffff, #d9d9d8);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #ffffff, #d9d9d8);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        height: 100%;
+    }
+
+    .global-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+    }
+
+    form {
+        padding-top: 10px;
+        font-size: 14px;
+        margin-top: 30px;
+    }
+
+    .card-title {
+        font-weight: 300;
+    }
+
+    .btn {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+
+    .login-form {
+        width: 330px;
+        margin: 20px;
+    }
+
+    .sign-up {
+        text-align: center;
+        padding: 20px 0 0;
+    }
+
+    .alert {
+        margin-bottom: -30px;
+        font-size: 13px;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+    <!--
+        <div id="noCognitoMessage" class="configMessage" style="display: none;">
+            <div class="backdrop"></div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">No Cognito User Pool Configured</h3>
+                </div>
+                <div class="panel-body">
+                    <p>There is no user pool configured in <a href="/js/config.js">/js/config.js</a>. You'll configure this in Module 2 of the workshop.</p>
+                </div>
+            </div>
+        </div>
+--><i class="la la-dashboard"></i>
+
+    <div class="container abs-center">
+        <div class="row align-items-left">
+            <div class="col">
+                <h1>Toxic Gas</h1>
+                <br><br>
+                <h4>¡Estamos contigo a favor de tu seguridad!</h4>
+                <p>Sabemos que para ti y tus trabajadores es primordial
+                    estar en una zona libre de peligros, asi que nos dimos a la tarea de desarrollar la plataforma única
+                    para la
+                    visualización de gases tóxicos del área de tu industria
+                    que estes monitoreando.</p>
+                <hr noshade="noshade" size="30" style="color: #939597;" />
+                <h4>Toxic Gas: Soluciones del futuro</h4>
+                <p>Aprende como esta innovación
+                    está rompiendo esquemas</p>
+            </div>
+            <div class="col align-items-left">
+                <div class="card login-form align-items-center">
+                    <div class="card-body">
+                        <h3 class="card-title text-center"><mark>INICIA SESIÓN</mark></h3>
+                        <div class="card-text">
+                            <!--
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                            <form id="signinForm">
+                                <!-- to error: add class "has-danger" -->
+                                <div class="form-group">
+                                    <i class="fa fa-user fa-3x" aria-hidden="true"></i>  <label>USUARIO</label>
+                                    <input type="email" class="form-control form-control-sm" id="emailInputSignin"
+                                        aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-unlock-alt fa-3x" aria-hidden="true"></i>  <label>CONTRASEÑA</label>
+                                    <input type="password" class="form-control form-control-sm" id="passwordInputSignin"
+                                        pattern=".*" required>
+                                </div>
+                                <hr noshade="noshade" size="30" style="color: #939597;" />
+                                <input type="submit" value="Ingresa" class="btn btn-outline-warning btn-lg"> </imput>
+                                <div class="sign-up">
+                                    <a style="color: red;" href="recuperarPass.html">¿Olvidaste tu contraseña?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="form-wrap">
+
+    </section>
+
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+</body>
+
+</html>
