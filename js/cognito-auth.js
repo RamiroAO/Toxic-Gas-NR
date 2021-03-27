@@ -13,8 +13,8 @@ var WildRydes = window.WildRydes || {};
     var userPool;
 
     if (!(_config.cognito.userPoolId &&
-          _config.cognito.userPoolClientId &&
-          _config.cognito.region)) {
+        _config.cognito.userPoolClientId &&
+        _config.cognito.region)) {
         $('#noCognitoMessage').show();
         return;
     }
@@ -52,14 +52,89 @@ var WildRydes = window.WildRydes || {};
      * Cognito User Pool functions
      */
 
-    function register(email, password, onSuccess, onFailure) {
+    function register(email, selfName, middle, phone, cargo, area, colonia, calle, num, estado, municipio, password, onSuccess, onFailure) {
+        var attributeList = [];
+
         var dataEmail = {
             Name: 'email',
             Value: email
         };
-        var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
 
-        userPool.signUp(toUsername(email), password, [attributeEmail], null,
+        var dataName = {
+            Name: 'name',
+            Value: selfName
+        };
+
+        var dataMiddle = {
+            Name: 'middle_name',
+            Value: middle
+        };
+
+        var dataPhone = {
+            Name: 'phone_number',
+            Value: phone
+        };
+
+        var dataCargo = {
+            Name: 'custom:Cargo',
+            Value: cargo
+        };
+
+        var dataArea = {
+            Name: 'custom:Area',
+            Value: area
+        };
+
+        var dataColonia = {
+            Name: 'custom:Colonia',
+            Value: colonia
+        };
+
+        var dataCalle = {
+            Name: 'custom:Calle',
+            Value: calle
+        };
+
+        var dataNum = {
+            Name: 'custom:Num',
+            Value: num
+        };
+
+        var dataEstado = {
+            Name: 'custom:Estado',
+            Value: estado
+        };
+
+        var dataMunicipio = {
+            Name: 'custom:Municipio',
+            Value: municipio
+        };
+
+        var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+        var attributePhone = new AmazonCognitoIdentity.CognitoUserAttribute(dataPhone);
+        var attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
+        var attributeMiddle = new AmazonCognitoIdentity.CognitoUserAttribute(dataMiddle);
+        var attributeCargo = new AmazonCognitoIdentity.CognitoUserAttribute(dataCargo);
+        var attributeArea = new AmazonCognitoIdentity.CognitoUserAttribute(dataArea);
+        var attributeColonia = new AmazonCognitoIdentity.CognitoUserAttribute(dataColonia);
+        var attributeCalle = new AmazonCognitoIdentity.CognitoUserAttribute(dataCalle);
+        var attributeNum = new AmazonCognitoIdentity.CognitoUserAttribute(dataNum);
+        var attributeEstado = new AmazonCognitoIdentity.CognitoUserAttribute(dataEstado);
+        var attributeMunicipio = new AmazonCognitoIdentity.CognitoUserAttribute(dataMunicipio);
+
+        attributeList.push(attributeEmail);
+        attributeList.push(attributePhone);
+        attributeList.push(attributeName);
+        attributeList.push(attributeMiddle);
+        attributeList.push(attributeCargo);
+        attributeList.push(attributeArea);
+        attributeList.push(attributeColonia);
+        attributeList.push(attributeCalle);
+        attributeList.push(attributeNum);
+        attributeList.push(attributeEstado);
+        attributeList.push(attributeMunicipio);
+
+        userPool.signUp(toUsername(email), password, attributeList, null,
             function signUpCallback(err, result) {
                 if (!err) {
                     onSuccess(result);
@@ -76,7 +151,7 @@ var WildRydes = window.WildRydes || {};
             Password: password
         });
 
-        var cognitoUser = createCognitoUser(email);
+        var cognitoUser = createCognitoUser(toUsername(email));
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: onSuccess,
             onFailure: onFailure
@@ -121,7 +196,7 @@ var WildRydes = window.WildRydes || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = 'ride.html';
+                window.location.href = 'monitoreoVideo.html';
             },
             function signinError(err) {
                 alert(err);
@@ -131,9 +206,18 @@ var WildRydes = window.WildRydes || {};
 
     function handleRegister(event) {
         var email = $('#emailInputRegister').val();
+        var selfName = $('#passwordInputRegister').val();
+        var middle = $('#middleInputRegister').val();
+        var phone = $('#phoneInputRegister').val();
+        var cargo = $('#cargoInputRegister').val();
+        var area = $('#aereaInputRegister').val();
+        var colonia = $('#coloniaInputRegister').val();
+        var calle = $('#calleInputRegister').val();
+        var num = $('#numInputRegister').val();
+        var estado = $('#estadoInputRegister').val();
+        var municipio = $('#municipioInputRegister').val();
         var password = $('#passwordInputRegister').val();
-        var password2 = $('#password2InputRegister').val();
-
+        
         var onSuccess = function registerSuccess(result) {
             var cognitoUser = result.user;
             console.log('user name is ' + cognitoUser.getUsername());
@@ -146,12 +230,7 @@ var WildRydes = window.WildRydes || {};
             alert(err);
         };
         event.preventDefault();
-
-        if (password === password2) {
-            register(email, password, onSuccess, onFailure);
-        } else {
-            alert('Passwords do not match');
-        }
+        register(email, selfName, middle, phone, cargo, area, colonia, calle, num, estado, municipio, password, onSuccess, onFailure);        
     }
 
     function handleVerify(event) {
