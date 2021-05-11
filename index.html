@@ -22,13 +22,14 @@
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://use.fontawesome.com/d051d45183.js"></script>
+    <script src="https://use.fontawesome.com/d051d45183.js"></script>
 </head>
 <style>
     mark {
-  background-color: #f5df4d;
-  color: black;
-}
+        background-color: #f5df4d;
+        color: black;
+    }
+
     .abs-center {
         display: flex;
         align-items: center;
@@ -93,19 +94,20 @@
     <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-    
-        <div id="noCognitoMessage" class="configMessage" style="display: none;">
-            <div class="backdrop"></div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">No Cognito User Pool Configured</h3>
-                </div>
-                <div class="panel-body">
-                    <p>There is no user pool configured in <a href="/js/config.js">/js/config.js</a>. You'll configure this in Module 2 of the workshop.</p>
-                </div>
+
+    <div id="noCognitoMessage" class="configMessage" style="display: none;">
+        <div class="backdrop"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">No Cognito User Pool Configured</h3>
+            </div>
+            <div class="panel-body">
+                <p>There is no user pool configured in <a href="/js/config.js">/js/config.js</a>. You'll configure this
+                    in Module 2 of the workshop.</p>
             </div>
         </div>
-   <i class="la la-dashboard"></i>
+    </div>
+    <i class="la la-dashboard"></i>
 
     <div class="container abs-center">
         <div class="row align-items-left">
@@ -133,12 +135,12 @@
                             <form id="signinForm">
                                 <!-- to error: add class "has-danger" -->
                                 <div class="form-group">
-                                    <i class="fa fa-user fa-3x" aria-hidden="true"></i>  <label>USUARIO</label>
+                                    <i class="fa fa-user fa-3x" aria-hidden="true"></i> <label>USUARIO</label>
                                     <input type="email" class="form-control form-control-sm" id="emailInputSignin"
                                         aria-describedby="emailHelp" required>
                                 </div>
                                 <div class="form-group">
-                                    <i class="fa fa-unlock-alt fa-3x" aria-hidden="true"></i>  <label>CONTRASEÑA</label>
+                                    <i class="fa fa-unlock-alt fa-3x" aria-hidden="true"></i> <label>CONTRASEÑA</label>
                                     <input type="password" class="form-control form-control-sm" id="passwordInputSignin"
                                         pattern=".*" required>
                                 </div>

@@ -31,7 +31,7 @@ var WildRydes = window.WildRydes || {};
 
     WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
-
+        
         if (cognitoUser) {
             cognitoUser.getSession(function sessionCallback(err, session) {
                 if (err) {
@@ -46,7 +46,17 @@ var WildRydes = window.WildRydes || {};
             resolve(null);
         }
     });
-
+    WildRydes.authToken.then(function setAuthToken(token) {
+        if (token) {
+            authToken = token;
+            console.log(token);
+        } else {
+            window.location.href = '/index.html';
+        }
+    }).catch(function handleTokenError(error) {
+        alert(error);
+        window.location.href = '/index.html';
+    });
 
     /*
      * Cognito User Pool functions
@@ -196,7 +206,7 @@ var WildRydes = window.WildRydes || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = 'monitoreoVideo.html';
+                window.location.href = 'historialAlarmas.html';
             },
             function signinError(err) {
                 alert(err);
@@ -217,7 +227,7 @@ var WildRydes = window.WildRydes || {};
         var estado = $('#estadoInputRegister').val();
         var municipio = $('#municipioInputRegister').val();
         var password = $('#passwordInputRegister').val();
-        
+
         var onSuccess = function registerSuccess(result) {
             var cognitoUser = result.user;
             console.log('user name is ' + cognitoUser.getUsername());
@@ -230,7 +240,7 @@ var WildRydes = window.WildRydes || {};
             alert(err);
         };
         event.preventDefault();
-        register(email, selfName, middle, phone, cargo, area, colonia, calle, num, estado, municipio, password, onSuccess, onFailure);        
+        register(email, selfName, middle, phone, cargo, area, colonia, calle, num, estado, municipio, password, onSuccess, onFailure);
     }
 
     function handleVerify(event) {

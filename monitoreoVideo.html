@@ -79,25 +79,22 @@
 					<div class="col-md-4 text-center">
 						<div class="card card-stats ">
 							<div class="card-body ">
-								<a class="dropdown-item" href="#">
-								<button class=" btn btn-warning btn-lg">Video</button>
-							</a>
+								<button class=" btn btn-warning btn-lg" onclick="location.href='monitoreoVideo.html';">Video</button>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="card card-stats ">
 							<div class="card-body ">
-								<a class="dropdown-item" href="monitoreoConcentracion.html">
-								<button class=" btn btn-warning btn-border btn-lg">Concentración</button>
-							</a>
+								<button class=" btn btn-warning btn-border btn-lg" onclick="location.href='monitoreoConcentracion.html';">Concentración</button>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="card card-stats ">
 							<div class="card-body ">
-								<button class="btn btn-warning btn-border btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								<button class="btn btn-warning btn-border btn-lg dropdown-toggle" type="button"
+									id="dropdownMenu1" data-toggle="dropdown">
 									Historial
 								</button>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -115,11 +112,12 @@
 								<h6 class="text-center">Ahora puedes visualizar si se presenta alguna concentración
 									de monóxido de carbono.</h6>
 								<br>
-								<h4 class="text-center">Lunes 30 de noviembre 2020 22:54:10 pm</h4>
+								<h4 class="text-center" id="FechaActual"></h4>
 								<hr /> <br>
 								<div class="col-md-12">
 									<div class="card">
-										<video src="rtsp://tapolink:123456@192.168.1.103:554/stream2" width="640" height="480"></video>
+										<video src="rtsp://tapolink:123456@192.168.1.103:554/stream2" width="640"
+											height="480"></video>
 
 									</div>
 								</div>
@@ -130,6 +128,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var today = new Date();
+		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+		document.getElementById("FechaActual").innerHTML = today.toLocaleDateString(undefined, options);
+	</script>
 </body>
 <script src="js/core/jquery.3.2.1.min.js"></script>
 <script src="js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
