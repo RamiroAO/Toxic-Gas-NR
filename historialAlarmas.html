@@ -21,9 +21,7 @@
 
 	<link href="css/super-monthpicker.min.css" rel="stylesheet">
 	<script type="text/javascript" src="js/super-monthpicker.min.js"> </script>
-	
-<script src="js/vendor/amazon-cognito-identity.min.js"></script>
-<script src="js/config.js"></script>
+	<script src="js/config.js"></script>
 	<script src="js/historialAlarmas.js"> </script>
 
 </head>
@@ -89,8 +87,8 @@
 					<div class="col-md-4 text-center">
 						<div class="card card-stats ">
 							<div class="card-body ">
-								<button class="btn btn-warning btn-lg dropdown-toggle" type="button"
-									id="dropdownMenu1" data-toggle="dropdown">
+								<button class="btn btn-warning btn-lg dropdown-toggle" type="button" id="dropdownMenu1"
+									data-toggle="dropdown">
 									Historial
 								</button>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -113,7 +111,7 @@
 								<div class="col-md-12">
 									<div class="card">
 										<div class="row">
-											<div class="col-4 text-center">
+											<div class="col-4">
 												<ul class="nav nav-tabs">
 													<li class="nav-item">
 														<a class="nav-link active" id="BDia" href="javascript:verDia()"
@@ -133,16 +131,56 @@
 													<input id="datepicker">
 												</div>
 												<div id="SemSel">
-													<select id="dropdownMes">
-														<option value="1">Semana 1</option>
-														<option value="2">Semana 2</option>
-														<option value="3">Semana 3</option>
-														<option value="4">Semana 4</option>
-													</select>
+													<div class="row align-items-center">
+														<div class="col-md-4">
+															<select id="dropdownSem">
+																<option value="1">Semana 1</option>
+																<option value="2">Semana 2</option>
+																<option value="3">Semana 3</option>
+																<option value="4">Semana 4</option>
+															</select>
+														</div>
+														<div class="col-md-4">
+															<select id="dropdownMes">
+																<option value="01">Enero</option>
+																<option value="02">Febrero</option>
+																<option value="03">Marzo</option>
+																<option value="04">Abril</option>
+																<option value="05">Mayo</option>
+																<option value="06">Junio</option>
+																<option value="07">Julio</option>
+																<option value="08">Agosto</option>
+																<option value="09">Septiembre</option>
+																<option value="10">Octubre</option>
+																<option value="11">Noviembre</option>
+																<option value="12">Diciembre</option>
+															</select>
+														</div>
+														<div class="col-md-4">
+															<input class="form-control" type="text" id="textAhno"
+																placeholder="año" required minlength="4" maxlength="4"
+																size="50%" onkeypress="return onlyNumberKey(event)">
+															<script>
+																function onlyNumberKey(evt) {
+																	var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+																	if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+																		return false;
+																	return true;
+																}
+															</script>
+														</div>
+													</div>
 												</div>
 												<div id="MesSel">
-														<input class="form-control" type="text" id="MesPi">
+													<input class="form-control" type="text" id="MesPi">
 												</div>
+												<br>
+												<button class="btn btn-outline-warning" id="btnFiltroD"
+													onclick="requestDay()">Listo</button>
+												<button class="btn btn-outline-warning" id="btnFiltroS"
+													onclick="requestWeek()">Listo</button>
+												<button class="btn btn-outline-warning" id="btnFiltroM"
+													onclick="requestMonth()">Listo</button>
 
 												<script>
 													$('#datepicker').datepicker({
@@ -150,15 +188,15 @@
 														format: 'yyyy-mm-dd'
 													});
 
+													$('#dropdownSem').dropdown();
 													$('#dropdownMes').dropdown();
 													$('#SemSel').css("display", "none");
 
 													$('#MesPi').sMonthPicker({ theme: 'bootstrap4' });
 													$('#MesSel').css("display", "none");
 
-													function imprimir() {
-														console.log($('#datepicker').val());
-													}
+													$('#btnFiltroS').css("display", "none");
+													$('#btnFiltroM').css("display", "none");
 
 													function verDia() {
 														$('#BDia').addClass("active");
@@ -169,6 +207,10 @@
 														$('#SemSel').css("display", "none");
 														$('#MesSel').css("display", "none");
 
+														$('#IDalm').text("");
+														$('#btnFiltroD').css("display", "block");
+														$('#btnFiltroS').css("display", "none");
+														$('#btnFiltroM').css("display", "none");
 													}
 
 													function verSemana() {
@@ -180,6 +222,10 @@
 														$('#SemSel').css("display", "block");
 														$('#MesSel').css("display", "none");
 
+														$('#IDalm').text("");
+														$('#btnFiltroS').css("display", "block");
+														$('#btnFiltroD').css("display", "none");
+														$('#btnFiltroM').css("display", "none");
 													}
 
 													function verMes() {
@@ -190,21 +236,23 @@
 														$('#DiaSel').css("display", "none");
 														$('#SemSel').css("display", "none");
 														$('#MesSel').css("display", "block");
+
+														$('#IDalm').text("");
+														$('#btnFiltroM').css("display", "block");
+														$('#btnFiltroD').css("display", "none");
+														$('#btnFiltroS').css("display", "none");
 													}
 												</script>
-												<br>
-												<button class="btn btn-outline-warning"
-													onclick="requestDay()">Listo</button>
 											</div>
-											<div class="col-2">											
+											<div class="col-2">
 											</div>
 
 											<div class="col-4">
-												<div class="row text-center">
-													<h4 class="text-center"> Alarmas ocurridas: </h4>
+												<div class="row">
+													<h4 > Alarmas ocurridas: </h4>
 												</div>
 												<div class="row">
-													<h4 class="text-center">0</h4>
+													<p id="IDalm"></p>
 												</div>
 											</div>
 										</div>
