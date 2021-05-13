@@ -12,9 +12,11 @@
 		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="css/ready.css">
 	<link rel="stylesheet" href="css/demo.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://use.fontawesome.com/d051d45183.js"></script>
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="js/config.js"></script>
+	<script src="js/borrarUsuarios.js"> </script>
 </head>
 
 <body>
@@ -60,24 +62,20 @@
 			<div class="content">
 				<div class="row row-card-no-pd">
 					<div class="col-md-12">
-						<div class="card card-stats">
-							<div class="card-body">
-								<h4 class="text-center">RECUPERA TU CUENTA</h4>
-								<hr /> <br>
-								<h4 class="text-center"><mark style="background-color: #f5df4d;">Ingresa tu correo
-										electrónico</mark></h4>
-								<div class="col-md-12">
-									<div class="card">
-										<div class="card-body">
-											<div class="form-group">
-												<input type="text" class="form-control input-square" id="squareInput">
-											</div>
-										</div>
-										<div class="card-action text-right">
-											<a href="recuperarPass2.html">
-											<button class="btn btn-outline-warning">Listo</button>
-										</a>
-										</div>
+						<div class="card-body">
+							<h4 class="text-center">¿Estas Seguro de Borrar al Usuario?</h4>
+							<h5 class="text-center" id="usuario"></h5>
+							<hr />
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-bodytext-center text-center">
+										
+											<button class="btn btn-warning btn-lg col-md-4"
+												onclick="actualizar()">Confirmar</button>
+										
+											<button class="btn btn-warning btn-lg col-md-4"
+												onclick="location.href='administrador.html';">Cancelar</button>
+										
 									</div>
 								</div>
 							</div>
@@ -88,10 +86,18 @@
 		</div>
 	</div>
 </body>
-<script src="js/vendor/jquery-3.1.0.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/vendor/aws-cognito-sdk.min.js"></script>
-<script src="js/vendor/amazon-cognito-identity.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/recuperarContrasena.js"></script>
+<script src="js/core/jquery.3.2.1.min.js"></script>
+<script src="js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="js/core/popper.min.js"></script>
+<script src="js/core/bootstrap.min.js"></script>
+<script src="js/plugin/chartist/chartist.min.js"></script>
+<script src="js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<script src="js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="js/plugin/chart-circle/circles.min.js"></script>
+<script src="js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="js/ready.min.js"></script>
+<script src="js/demo.js"></script>
+
 </html>

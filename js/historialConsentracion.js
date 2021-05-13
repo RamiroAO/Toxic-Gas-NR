@@ -95,6 +95,16 @@ function requestMonth() {
     }
 }
 
+function aveg(data) {
+    var sum = 0;
+    for (var i = 2; i < data.length; i++) {
+        sum += parseFloat(data[i][1], 10);
+    }
+    
+    var avg = sum / data.length;
+    return avg;
+}
+
 function completeRequest(result) {
     var dat1 = [['Fecha', 'Sensor 1']];
     var dat2 = [['Fecha', 'Sensor 2']];
@@ -104,22 +114,22 @@ function completeRequest(result) {
 
     items.forEach(function (elemento, indice, array) {
         var datAux = [];
-        if(elemento.Id_Sensor === 1){
-            datAux.push(elemento.Fecha);        
+        if (elemento.Id_Sensor === 1) {
+            datAux.push(elemento.Fecha);
             datAux.push(elemento.ppm);
-            dat1.push(datAux);    
-        } else if(elemento.Id_Sensor === 2){
-            datAux.push(elemento.Fecha);        
+            dat1.push(datAux);
+        } else if (elemento.Id_Sensor === 2) {
+            datAux.push(elemento.Fecha);
             datAux.push(elemento.ppm);
-            dat2.push(datAux);    
-        } else if(elemento.Id_Sensor === 3){
-            datAux.push(elemento.Fecha);        
+            dat2.push(datAux);
+        } else if (elemento.Id_Sensor === 3) {
+            datAux.push(elemento.Fecha);
             datAux.push(elemento.ppm);
-            dat3.push(datAux);    
-        } else if(elemento.Id_Sensor === 4){
-            datAux.push(elemento.Fecha);        
+            dat3.push(datAux);
+        } else if (elemento.Id_Sensor === 4) {
+            datAux.push(elemento.Fecha);
             datAux.push(elemento.ppm);
-            dat4.push(datAux);    
+            dat4.push(datAux);
         }
     })
 
@@ -138,17 +148,29 @@ function completeRequest(result) {
     var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
     var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart3'));
     var chart4 = new google.visualization.LineChart(document.getElementById('curve_chart4'));
-
-    if(dat1.length > 1){
+    console.log(dat1);
+    if (dat1.length > 1) {
+        var avvg = aveg(dat1);
+        var text = "El promedio de concentración del SENSOR 1 es: " + avvg.toString();
+        $('#Idavg1').text(text);
         chart1.draw(data1, options);
     }
-    if(dat2.length > 1){
+    if (dat2.length > 1) {
+        var avvg = aveg(dat2);
+        var text = "El promedio de concentración del SENSOR 2 es: " + avvg.toString();
+        $('#Idavg2').text(text);
         chart2.draw(data2, options);
     }
-    if(dat3.length > 1){
+    if (dat3.length > 1) {
+        var avvg = aveg(dat3);
+        var text = "El promedio de concentración del SENSOR 3 es: " + avvg.toString();
+        $('#Idavg3').text(text);
         chart3.draw(data3, options);
     }
-    if(dat4.length > 1){
+    if (dat4.length > 1) {
+        var avvg = aveg(dat4);
+        var text = "El promedio de concentración del SENSOR 4 es: " + avvg.toString();
+        $('#Idavg4').text(text);
         chart4.draw(data4, options);
     }
 

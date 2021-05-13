@@ -46,17 +46,6 @@ var WildRydes = window.WildRydes || {};
             resolve(null);
         }
     });
-    WildRydes.authToken.then(function setAuthToken(token) {
-        if (token) {
-            authToken = token;
-            console.log(token);
-        } else {
-            window.location.href = '/index.html';
-        }
-    }).catch(function handleTokenError(error) {
-        alert(error);
-        window.location.href = '/index.html';
-    });
 
     /*
      * Cognito User Pool functions
@@ -216,11 +205,11 @@ var WildRydes = window.WildRydes || {};
 
     function handleRegister(event) {
         var email = $('#emailInputRegister').val();
-        var selfName = $('#passwordInputRegister').val();
+        var selfName = $('#nameInputRegister').val();
         var middle = $('#middleInputRegister').val();
         var phone = $('#phoneInputRegister').val();
         var cargo = $('#cargoInputRegister').val();
-        var area = $('#aereaInputRegister').val();
+        var area = $('#areaInputRegister').val();
         var colonia = $('#coloniaInputRegister').val();
         var calle = $('#calleInputRegister').val();
         var num = $('#numInputRegister').val();

@@ -12,6 +12,11 @@
 		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="css/ready.css">
 	<link rel="stylesheet" href="css/demo.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="js/config.js"></script>
+	<script src="js/modificarUsuarios.js"> </script>
 </head>
 
 <body>
@@ -63,15 +68,15 @@
 								<hr /> <br>
 								<h4 class="text-center">Modifica si es necesario los datos</h4>
 								<br>
-								<h3>Adriana Diaz Avila</h3>
+								<h3 id="Nombre"></h3>
 								<div class="form-group form-inline">
 									<label for="inlineinput" class="col-md-2 col-form-label">Cargo</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Cargo" placeholder="Ingeniera de SW">
+										<input type="text" class="form-control input-full" id="Cargo">
 									</div>
 									<label for="inlineinput" class="col-md-2 col-form-label">Área</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Área">
+										<input type="text" class="form-control input-full" id="Area">
 									</div>
 								</div>
 								<hr />
@@ -80,33 +85,33 @@
 								<div class="form-group form-inline">
 									<label for="inlineinput" class="col-md-2 col-form-label">Colonia</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Colonia" placeholder="La Villa">
+										<input type="text" class="form-control input-full" id="Colonia">
 									</div>
 									<label for="inlineinput" class="col-md-2 col-form-label">Calle</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Calle" placeholder="Real del Monte">
+										<input type="text" class="form-control input-full" id="Calle">
 									</div>
 								</div>
 
 								<div class="form-group form-inline">
 									<label for="inlineinput" class="col-md-2 col-form-label">Núm</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Num" placeholder="97">
+										<input type="text" class="form-control input-full" id="Num">
 									</div>
 									<label for="inlineinput" class="col-md-2 col-form-label">Estado</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Estado" placeholder="Ciudad México">
+										<input type="text" class="form-control input-full" id="Estado">
 									</div>
 								</div>
 
 								<div class="form-group form-inline">
-									<label for="inlineinput" class="col-md-2 col-form-label">Muicipio</label>
+									<label for="inlineinput" class="col-md-2 col-form-label">Municipio</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Muicipio" placeholder="Gustavo A. Madero">
+										<input type="text" class="form-control input-full" id="Municipio">
 									</div>
 									<label for="inlineinput" class="col-md-2 col-form-label">Teléfono</label>
 									<div class="col-md-4 p-0">
-										<input type="text" class="form-control input-full" id="Telefono" placeholder="5578590226">
+										<input type="text" class="form-control input-full" id="Telefono">
 									</div>
 								</div>
 								<hr />
@@ -115,21 +120,14 @@
 								<div class="form-group form-inline">
 									<label for="inlineinput" class="col-md-3 col-form-label">Correo electrónico</label>
 									<div class="col-md-9 p-0">
-										<input type="text" class="form-control input-full" id="Email" placeholder="adiaza@toxicgas.com">
+										<input type="text" class="form-control input-full" id="Email">
 									</div>
 								</div>
-									<div class="form-group form-inline">
-									<label for="inlineinput" class="col-md-3 col-form-label">Contraseña</label>
-									<div class="col-md-9 p-0">
-										<input type="text" class="form-control input-full" id="Password" placeholder="230jp2Ap">
-									</div>
-								</div>
+
 							</div>
 						</div>
 						<div class="card-action text-right">
-							<a class="dropdown-item" href="administrador.html">
-							<button class="btn btn-outline-warning">Listo</button>
-						</a>
+							<button class="btn btn-outline-warning" onclick="actualizar()">Listo</button>
 						</div>
 					</div>
 				</div>
