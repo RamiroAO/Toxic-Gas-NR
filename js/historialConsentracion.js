@@ -97,11 +97,11 @@ function requestMonth() {
 
 function aveg(data) {
     var sum = 0;
-    for (var i = 2; i < data.length; i++) {
+    for (var i = 1; i < data.length; i++) {
         sum += parseFloat(data[i][1], 10);
     }
     
-    var avg = sum / data.length;
+    var avg = sum / (data.length-1);
     return avg;
 }
 
