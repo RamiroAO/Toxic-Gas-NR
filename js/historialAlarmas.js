@@ -90,6 +90,7 @@ function requestMonth() {
 }
 
 function completeRequest(result) {
+    console.log(result);
     var textT = [];
     var items = JSON.parse(result.body).Items;
     items.forEach(function (elemento, indice, array) {
