@@ -31,7 +31,7 @@ var WildRydes = window.WildRydes || {};
 
     WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
-        
+
         if (cognitoUser) {
             cognitoUser.getSession(function sessionCallback(err, session) {
                 if (err) {
@@ -195,10 +195,14 @@ var WildRydes = window.WildRydes || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = 'historialAlarmas.html';
+                window.location.href = 'monitoreoVideo.html';
             },
             function signinError(err) {
-                alert(err);
+                if (err.toString().includes("User is not confirmed.")) {
+                    window.location.href = "verificarUsuarios.html?email=" + email;
+                } else {
+                    alert(err);
+                }
             }
         );
     }
@@ -220,10 +224,28 @@ var WildRydes = window.WildRydes || {};
         var onSuccess = function registerSuccess(result) {
             var cognitoUser = result.user;
             console.log('user name is ' + cognitoUser.getUsername());
-            var confirmation = ('Registration successful. Please check your email inbox or spam folder for your verification code.');
+            /*var confirmation = ('Registration successful. Please check your email inbox or spam folder for your verification code.');
             if (confirmation) {
                 window.location.href = 'verify.html';
-            }
+            }*/
+            $.ajax({
+                method: 'POST',
+                url: _config.api.invokeUrl + "/modificarcognito",
+                data: JSON.stringify({
+                    attributes: {
+                        "Name": "email_verified",
+                        "Value": true
+                    },
+                    userName: cognitoUser
+                }),
+
+                success: window.location.href = 'login.html',
+                error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                    console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                    console.error('Response: ', jqXHR.responseText);
+                    alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+                }
+            });
         };
         var onFailure = function registerFailure(err) {
             alert(err);
@@ -233,15 +255,14 @@ var WildRydes = window.WildRydes || {};
     }
 
     function handleVerify(event) {
-        var email = $('#emailInputVerify').val();
-        var code = $('#codeInputVerify').val();
+        var email = window.location.search.substr(1).split("=")[1];
+        var code = $('#codigo').val();
         event.preventDefault();
         verify(email, code,
             function verifySuccess(result) {
                 console.log('call result: ' + result);
                 console.log('Successfully verified');
-                alert('Verification successful. You will now be redirected to the login page.');
-                window.location.href = signinUrl;
+                window.location.href = 'monitoreoVideo.html';
             },
             function verifyError(err) {
                 alert(err);

@@ -68,32 +68,17 @@
 										código de verificación a tu correo electrónico!</mark></h4>
 								<br><br>
 								<h4 style="margin-left: 40px;">Ingresa código de verificación</h4>
-								<div class="card">
-									<div class="card-body">
-										<form id="recoPassForm">
-											<div class="form-group">
-												<input type="text" class="form-control input-square" id="codigo">
-											</div>
-											<h4 style="margin-left: 20px;"><mark style="background-color: #f5df4d;">Ingresa una
-													nueva
-													contraseña</mark></h4>
-											<br>
-											<div class="form-group">
-												<input type="text" class="form-control input-square" id="pass1">
-											</div> <br>
-											<h4 style="margin-left: 20px;"><mark style="background-color: #f5df4d;">Confirma tu
-													contraseña</mark></h4>
-											<br>
-											<div class="form-group">
-												<input type="text" class="form-control input-square" id="pass2">
-											</div>
-											<input type="submit" value="Listo"
+								<div class="col-md-12">
+									<div class="card">
+										<div class="card-body">
+											<form id="verifyForm">
+												<div class="form-group">
+													<input type="text" class="form-control input-square" id="codigo">
+												</div>
+												<hr noshade="noshade" size="30" style="color: #939597;" />
+												<input type="submit" value="Listo"
 													class="btn btn-outline-warning btn-lg"> </imput>
-										</form>
-										<div class="card-action text-right">
-											<a href="recuperarPass3.html">
-												<button class="btn btn-outline-warning">Listo</button>
-											</a>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -110,7 +95,6 @@
 <script src="js/vendor/aws-cognito-sdk.min.js"></script>
 <script src="js/vendor/amazon-cognito-identity.min.js"></script>
 <script src="js/config.js"></script>
-<script src="js/recuperarContrasena2.js"></script>
-
+<script src="js/cognito-auth.js"></script>
 
 </html>
