@@ -178,6 +178,17 @@ var WildRydes = window.WildRydes || {};
         return email.replace('@', '-at-');
     }
 
+    function hashCode(email) {
+        var hash = 0, i, chr;
+        if (email.length === 0) return hash;
+        for (i = 0; i < email.length; i++) {
+          chr   = email.charCodeAt(i);
+          hash  = ((hash << 3) - hash) + chr;
+          hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+      };
+
     /*
      *  Event Handlers
      */
@@ -194,7 +205,7 @@ var WildRydes = window.WildRydes || {};
         event.preventDefault();
         signin(email, password,
             function signinSuccess() {
-                console.log('Successfully Logged In');
+                document.cookie = "usr="+hashCode(email);
                 window.location.href = 'monitoreoVideo.html';
             },
             function signinError(err) {
@@ -239,7 +250,7 @@ var WildRydes = window.WildRydes || {};
                     userName: cognitoUser
                 }),
 
-                success: window.location.href = 'login.html',
+                success: window.location.href = 'administrador.html',
                 error: function ajaxError(jqXHR, textStatus, errorThrown) {
                     console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
                     console.error('Response: ', jqXHR.responseText);
