@@ -12,6 +12,11 @@
 		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="css/ready.css">
 	<link rel="stylesheet" href="css/demo.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="js/config.js"></script>
+	<script src="js/mostrarDispositivos.js"> </script>
 </head>
 
 <body>
@@ -66,34 +71,35 @@
 												<thead>
 													<tr>
 														<th scope="col">#</th>
-														<th scope="col">Nodo Sensor</th>
 														<th scope="col">Estado</th>
+														<th scope="col">Nodo Sensor</th>
+														<th scope="col">Acción</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
 														<td>1</td>
-														<td><i class="la la-cogs la-2x" style="color: red;"></i>Nodo
-															Sensor 001</td>
-														<td>Revisa tu conexión física</td>
+														<td><i id="EstSen1" class="la la-cogs la-2x" style="color: black;"></i></td>
+														<td>Nodo Sensor 001</td>
+														<td id="AccSen1"></td>
 													</tr>
 													<tr>
 														<td>2</td>
-														<td><i class="la la-cogs la-2x" style="color: green;"></i>Nodo
-															Sensor 002</td>
-														<td><i class="la la-check-circle la-3x text-center"></i></td>
+														<td><i id="EstSen2" class="la la-cogs la-2x" style="color: black;"></i></td>
+														<td>Nodo Sensor 002</td>
+														<td id="AccSen2"></td>
 													</tr>
 													<tr>
 														<td>3</td>
-														<td><i class="la la-cogs la-2x" style="color: blue;"></i>Nodo
-															Sensor 003</td>
-														<td>Reinicia el sistema</td>
+														<td><i id="EstSen3" class="la la-cogs la-2x" style="color: black;"></i></td>
+														<td>Nodo Sensor 003</td>
+														<td id="AccSen3"></td>
 													</tr>
 													<tr>
 														<td>4</td>
-														<td><i class="la la-cogs la-2x" style="color: green;"></i>Nodo
-															Sensor 004</td>
-														<td><i class="la la-check-circle la-3x text-center"></i></td>
+														<td><i id="EstSen4" class="la la-cogs la-2x" style="color: black;"></i></td>
+														<td>Nodo Sensor 004</td>
+														<td id="AccSen4"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -115,7 +121,7 @@
 															<td>Conectado</td>
 														</tr>
 														<tr>
-															<td><i class="la la-cogs la-2x" style="color: blue;"></i>
+															<td><i class="la la-cogs la-2x" style="color: yellow;"></i>
 															</td>
 															<td>Modo Sleep</td>
 														</tr>
