@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+$(document).ready(async function () {
     const cons = [];
     const acc = [];
 
@@ -18,6 +18,7 @@ $(document).ready(function () {
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
+        await sleep(200);
     }
 
     function mostrarConcentracion() {
@@ -51,5 +52,8 @@ $(document).ready(function () {
         if(cons.length === 4){
             mostrarConcentracion();
         }
+    }
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 });
