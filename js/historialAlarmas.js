@@ -95,10 +95,10 @@ function completeRequest(result) {
     var items = JSON.parse(result.body).Items;
     items.forEach(function (elemento, indice, array) {
         var text = " ";
-        text += "Sensor: " + elemento.Id_Sensor + " Fecha de Alarma: " + elemento.Fecha + " PPM: " + elemento.ppm + "\n\r";
+        text += "<p>Sensor:    <span>" + elemento.Id_Sensor + "</span>  Fecha de Alarma:    <span>" + elemento.Fecha + "</span> PPM:  <b>" + elemento.ppm + "</b></p><br>";
         textT.push(text);
     })
 
-    $('#IDalm').text(textT);
+    $('#IDalm').append(textT);
     console.log(result);
 }
