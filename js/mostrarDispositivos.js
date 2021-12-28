@@ -42,20 +42,21 @@ $(document).ready(async function () {
             const diffTime = Math.abs(date2 - date1);
             //console.log(diffTime + " milliseconds");
             if(diffTime >= 35000){
-                cons.push("red");
-                acc.push("Revisa tu conexión física")
+                $('#EstSen'+elemento.Id_Sensor.N).css("color", "red");
+                $('#AccSen'+elemento.Id_Sensor.N).html("Revisa tu conexión física");
             } else {
-                cons.push(elemento.status.S);
-                acc.push('<i class="la la-check-circle la-3x text-center" style="color: green;"></i>');
+                $('#EstSen'+elemento.Id_Sensor.N).css("color", elemento.status.S);
+                $('#AccSen'+elemento.Id_Sensor.N).html('<i class="la la-check-circle la-3x text-center" style="color: green;"></i>');
+                
             }
         })
         //console.log(cons);
         //console.log(result);
-        if(cons.length === 4){
-            mostrarConcentracion();
-            cons = [];
-            acc = [];
-        }
+        //if(cons.length === 4){
+            //mostrarConcentracion();
+          //  cons = [];
+            //acc = [];
+        //}
         //console.log(acc);
     }
     function sleep(ms) {
