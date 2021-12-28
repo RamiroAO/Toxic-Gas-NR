@@ -29,17 +29,19 @@ $(document).ready(async function () {
         //console.log(cons);
         var avg = sum / cons.length;
 
-        $('#IDsen1').text(cons[0]);
+        /*$('#IDsen1').text(cons[0]);
         $('#IDsen2').text(cons[1]);
         $('#IDsen3').text(cons[2]);
-        $('#IDsen4').text(cons[3]);
+        $('#IDsen4').text(cons[3]);*/
         $('#IDavg').text(avg);
     }
 
     function completeRequest(result) {
         var items = JSON.parse(result.body).Items;
         items.forEach(function (elemento, indice, array) {
-            cons.push(elemento.ppm.N);
+            $('#IDsen'+elemento.Id_Sensor.N).text(elemento.ppm.N);
+            
+          //  cons.push();
         })
         //console.log(cons);
         //console.log(result);
