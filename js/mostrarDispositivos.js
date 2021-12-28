@@ -20,7 +20,7 @@ $(document).ready(async function () {
             });
             await sleep(200);
         }
-        await sleep(3000);
+        await sleep(200);
     }
 
     function mostrarConcentracion() {
@@ -40,7 +40,7 @@ $(document).ready(async function () {
             const date1 = new Date(elemento.Fecha.S);
             const date2 = new Date(Date.now());
             const diffTime = Math.abs(date2 - date1);
-            console.log(diffTime + " milliseconds");
+            //console.log(diffTime + " milliseconds");
             if(diffTime >= 35000){
                 cons.push("red");
                 acc.push("Revisa tu conexión física")
@@ -49,14 +49,14 @@ $(document).ready(async function () {
                 acc.push('<i class="la la-check-circle la-3x text-center" style="color: green;"></i>');
             }
         })
-        console.log(cons);
-        console.log(result);
+        //console.log(cons);
+        //console.log(result);
         if(cons.length === 4){
             mostrarConcentracion();
             cons = [];
             acc = [];
         }
-        console.log(acc);
+        //console.log(acc);
     }
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
