@@ -17,7 +17,7 @@ $(document).ready(async function () {
                     alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
                 }
             });
-            await sleep(500);
+            await sleep(200);
         }
         //await sleep(200);
     }
@@ -41,7 +41,7 @@ $(document).ready(async function () {
         items.forEach(function (elemento, indice, array) {
             $('#IDsen'+elemento.Id_Sensor.N).text(elemento.ppm.N);
             
-          //  cons.push();
+            cons.push();
         })
         //console.log(cons);
         //console.log(result);
