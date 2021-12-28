@@ -19,14 +19,14 @@ $(document).ready(async function () {
             });
             await sleep(200);
         }
-        await sleep(3000);
+        await sleep(200);
     }
     function mostrarConcentracion() {
         var sum = 0;
         for (var i = 0; i < cons.length; i++) {
             sum += parseFloat(cons[i], 10);
         }
-        console.log(cons);
+        //console.log(cons);
         var avg = sum / cons.length;
 
         $('#IDsen1').text(cons[0]);
@@ -41,8 +41,8 @@ $(document).ready(async function () {
         items.forEach(function (elemento, indice, array) {
             cons.push(elemento.ppm.N);
         })
-        console.log(cons);
-        console.log(result);
+        //console.log(cons);
+        //console.log(result);
         if(cons.length === 4){
             mostrarConcentracion();
             cons = [];
