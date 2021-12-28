@@ -17,9 +17,9 @@ $(document).ready(async function () {
                     alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
                 }
             });
-            await sleep(200);
+            await sleep(500);
         }
-        await sleep(200);
+        //await sleep(200);
     }
     function mostrarConcentracion() {
         var sum = 0;
