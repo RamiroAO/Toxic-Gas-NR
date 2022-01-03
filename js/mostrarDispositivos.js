@@ -41,7 +41,7 @@ $(document).ready(async function () {
             const date2 = new Date(Date.now());
             const diffTime = Math.abs(date2 - date1);
             //console.log(diffTime + " milliseconds");
-            if(diffTime >= 35000){
+            if(diffTime >= 45000){
                 $('#EstSen'+elemento.Id_Sensor.N).css("color", "red");
                 $('#AccSen'+elemento.Id_Sensor.N).html("Revisa tu conexión física");
             } else {
